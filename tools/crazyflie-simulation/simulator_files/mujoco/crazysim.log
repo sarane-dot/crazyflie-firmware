@@ -1,0 +1,38 @@
+[crazysim] Model type  : cf2x_T350
+[crazysim] Num agents  : 10
+[crazysim] rpm2thrust  : (0.0, -7.167227176573658e-07, 2.9401303690194613e-10)
+[crazysim] rpm2torque  : (0.0, 5.815894847811497e-10, 1.331813874166509e-12)
+[crazysim] tau_up/down : 0.0881 / 0.0881 s
+[crazysim] max_rpm     : 25992
+[crazysim] mass       : 0.0379 kg
+[crazysim] diaginertia: (1.68e-05, 1.68e-05, 2.98e-05)
+[crazysim] Agent 0: fw_port=19950  cflib_port=19850
+[crazysim] Agent 1: fw_port=19951  cflib_port=19851
+[crazysim] Agent 2: fw_port=19952  cflib_port=19852
+[crazysim] Agent 3: fw_port=19953  cflib_port=19853
+[crazysim] Agent 4: fw_port=19954  cflib_port=19854
+[crazysim] Agent 5: fw_port=19955  cflib_port=19855
+[crazysim] Agent 6: fw_port=19956  cflib_port=19856
+[crazysim] Agent 7: fw_port=19957  cflib_port=19857
+[crazysim] Agent 8: fw_port=19958  cflib_port=19858
+[crazysim] Agent 9: fw_port=19959  cflib_port=19859
+[crazysim] Agent 0: waiting for firmware on port 19950 ...[crazysim] Agent 1: waiting for firmware on port 19951 ...
+
+[crazysim] Agent 2: waiting for firmware on port 19952 ...[crazysim] Agent 3: waiting for firmware on port 19953 ...
+
+[crazysim] Agent 4: waiting for firmware on port 19954 ...
+[crazysim] Agent 5: waiting for firmware on port 19955 ...
+[crazysim] Agent 6: waiting for firmware on port 19956 ...[crazysim] Agent 7: waiting for firmware on port 19957 ...
+
+[crazysim] Agent 8: waiting for firmware on port 19958 ...
+[crazysim] Agent 9: waiting for firmware on port 19959 ...
+[crazysim] Agent 0: firmware connected from ('127.0.0.1', 47139)
+[crazysim] Agent 1: firmware connected from ('127.0.0.1', 50874)
+[crazysim] Agent 2: firmware connected from ('127.0.0.1', 48794)
+[crazysim] Agent 3: firmware connected from ('127.0.0.1', 60632)
+[crazysim] Agent 4: firmware connected from ('127.0.0.1', 41036)
+[crazysim] Agent 5: firmware connected from ('127.0.0.1', 52843)
+[crazysim] Agent 6: firmware connected from ('127.0.0.1', 37307)
+[crazysim] Agent 7: firmware connected from ('127.0.0.1', 54579)
+[crazysim] Agent 8: firmware connected from ('127.0.0.1', 53960)
+[crazysim] Agent 9: firmware connected from ('127.0.0.1', 33887)
