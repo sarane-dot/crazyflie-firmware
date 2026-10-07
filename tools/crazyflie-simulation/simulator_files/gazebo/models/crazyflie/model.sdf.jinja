@@ -5,231 +5,144 @@
         <static>false</static>
         <link name="base_link">
             <inertial>
-                <mass>0.025</mass>
+                <!-- Rotated inertia (swapped Y and Z) -->
+                <mass>0.13062</mass>
                 <inertia>
-                    <ixx>0.000016572</ixx>
-                    <ixy>0.00</ixy>
-                    <ixz>0.00</ixz>
-                    <iyy>0.000016656</iyy>
-                    <iyz>0.00000</iyz>
-                    <izz>0.000029262</izz>
+                    <ixx>0.00025135</ixx>
+                    <ixy>7.0211E-08</ixy> <!-- was -ixz -->
+                    <ixz>1.9283E-11</ixz> <!-- was ixy -->
+                    <iyy>0.00022644</iyy> <!-- was izz -->
+                    <iyz>-5.5599E-07</iyz> <!-- was -iyz -->
+                    <izz>0.00045931</izz> <!-- was iyy -->
                 </inertia>
             </inertial>
-        <collision name="body_collision">
-            <pose>0 0 0 0 0 0</pose>
-            <geometry>
-                <box>
-                    <size>0.10 0.10 0.03</size>
-                </box>
-            </geometry>
-        </collision>
-        <visual name="body_visual">
-            <pose>0 0 0 0 -0 0</pose>
-            <geometry>
-                <mesh>
-                    <scale>1 1 1</scale>
-                    <uri>model://crazyflie/../../../../meshes/collada_files/cf2_assembly.dae</uri>
-                </mesh>
-            </geometry>
-        </visual>
-        <sensor name="air_pressure_sensor" type="air_pressure">
-            <topic>/cf_{{ cf_id }}/baro</topic>
-            <always_on>1</always_on>
-            <update_rate>50</update_rate>
-            <air_pressure>
-            <pressure>
-                <noise type="gaussian">
-                <mean>0</mean>
-                <stddev>0.01</stddev>
-                </noise>
-            </pressure>
-            </air_pressure>
-        </sensor>
-        <sensor name="imu_sensor" type="imu">
-            <topic>/cf_{{ cf_id }}/imu</topic>
-            <always_on>1</always_on>
-            <update_rate>1000</update_rate>
-        </sensor>
+            <collision name="body_collision">
+                <pose>0 0 0 1.570796 0 0</pose>
+                <geometry>
+                    <mesh>
+                        <uri>model://crazyflie/meshes/base_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name="body_visual">
+                <pose>0 0 0 1.570796 0 0</pose>
+                <geometry>
+                    <mesh>
+                        <uri>model://crazyflie/meshes/base_link.STL</uri>
+                    </mesh>
+                </geometry>
+                <material>
+                    <ambient>0.6 0.67 0.68 1</ambient>
+                    <diffuse>0.6 0.67 0.68 1</diffuse>
+                </material>
+            </visual>
+            <sensor name="air_pressure_sensor" type="air_pressure">
+                <topic>/cf_{{ cf_id }}/baro</topic>
+                <always_on>1</always_on>
+                <update_rate>50</update_rate>
+                <air_pressure>
+                    <pressure>
+                        <noise type="gaussian">
+                            <mean>0</mean>
+                            <stddev>0.01</stddev>
+                        </noise>
+                    </pressure>
+                </air_pressure>
+            </sensor>
+            <sensor name="imu_sensor" type="imu">
+                <topic>/cf_{{ cf_id }}/imu</topic>
+                <always_on>1</always_on>
+                <update_rate>1000</update_rate>
+            </sensor>
         </link>
+
+        <!-- Propellers -->
+        <!-- m1: Rear Right (Link 1) -->
         <link name="m1_prop">
-            <gravity>true</gravity>
-            <self_collide>false</self_collide>
-            <velocity_decay/>
-            <pose>0.031 -0.031 0.021 0 0 0</pose>
+            <pose>-0.060 -0.06 -0.017895 0 0 0</pose>
             <inertial>
-                <pose>0 0 0 0 -0 0</pose>
-                <mass>0.0008</mass>
+                <mass>0.0012256</mass>
                 <inertia>
-                    <ixx>0.000000002*70</ixx>
-                    <iyy>0.000000167*70</iyy>
-                    <izz>0.000000168*70</izz>
-                    <ixy>0</ixy>
-                    <ixz>0</ixz>
-                    <iyz>0</iyz>
+                    <ixx>1.4864E-07</ixx><iyy>3.4621E-07</iyy><izz>4.8751E-07</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
                 </inertia>
             </inertial>
             <visual name="m1_visual">
-                <pose>0 0 0 0 -0 0</pose>
-                <geometry>
-                    <mesh>
-                        <scale>1 1 1</scale>
-                        <uri>model://crazyflie/../../../../meshes/collada_files/ccw_prop.dae</uri>
-                    </mesh>
-                </geometry>
+                <pose>0.060 0.06 0.017895 1.570796 0 0</pose>
+                <geometry><mesh><uri>model://crazyflie/meshes/Link 1.STL</uri></mesh></geometry>
             </visual>
         </link>
+
+        <!-- m2: Front Right (Link 4) -->
         <link name="m2_prop">
-            <gravity>true</gravity>
-            <self_collide>false</self_collide>
-            <velocity_decay/>
-            <pose>-0.031 -0.031 0.021 0 0 0</pose>
+            <pose>0.059 -0.06 -0.017895 0 0 0</pose>
             <inertial>
-                <pose>0 0 0 0 -0 0</pose>
-                <mass>0.0008</mass>
+                <mass>0.0012256</mass>
                 <inertia>
-                    <ixx>0.000000002*50</ixx>
-                    <iyy>0.000000167*50</iyy>
-                    <izz>0.000000168*50</izz>
-                    <ixy>0</ixy>
-                    <ixz>0</ixz>
-                    <iyz>0</iyz>
+                    <ixx>2.1156E-07</ixx><iyy>2.8328E-07</iyy><izz>4.875E-07</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
                 </inertia>
             </inertial>
             <visual name="m2_visual">
-                <pose>0 0 0 0 -0 0</pose>
-                <geometry>
-                    <mesh>
-                        <scale>1 1 1</scale>
-                        <uri>model://crazyflie/../../../../meshes/collada_files/cw_prop.dae</uri>
-                    </mesh>
-                </geometry>
+                <pose>-0.059 0.06 0.017895 1.570796 0 0</pose>
+                <geometry><mesh><uri>model://crazyflie/meshes/Link 4.STL</uri></mesh></geometry>
             </visual>
         </link>
+
+        <!-- m3: Front Left (Link 3) -->
         <link name="m3_prop">
-            <gravity>true</gravity>
-            <self_collide>false</self_collide>
-            <velocity_decay/>
-            <pose >-0.031 0.031 0.021 0 0 0</pose>
+            <pose>0.06 0.06 -0.017895 0 0 0</pose>
             <inertial>
-                <pose>0 0 0 0 -0 0</pose>
-                <mass>0.0008</mass>
+                <mass>0.0012256</mass>
                 <inertia>
-                    <ixx>0.000000002*50</ixx>
-                    <iyy>0.000000167*50</iyy>
-                    <izz>0.000000168*50</izz>
-                    <ixy>0</ixy>
-                    <ixz>0</ixz>
-                    <iyz>0</iyz>
+                    <ixx>4.1498E-07</ixx><iyy>7.9866E-08</iyy><izz>4.8751E-07</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
                 </inertia>
             </inertial>
             <visual name="m3_visual">
-                <pose>0 0 0 0 -0 0</pose>
-                <geometry>
-                    <mesh>
-                        <scale>1 1 1</scale>
-                        <uri>model://crazyflie/../../../../meshes/collada_files/ccw_prop.dae</uri>
-                    </mesh>
-                </geometry>
+                <pose>-0.06 -0.06 0.017895 1.570796 0 0</pose>
+                <geometry><mesh><uri>model://crazyflie/meshes/Link 3.STL</uri></mesh></geometry>
             </visual>
         </link>
+
+        <!-- m4: Rear Left (Link 2) -->
         <link name="m4_prop">
-            <gravity>true</gravity>
-            <self_collide>false</self_collide>
-            <velocity_decay/>
-            <pose>0.031 0.031 0.021 0 0 0</pose>
+            <pose>-0.059 0.06 -0.017895 0 0 0</pose>
             <inertial>
-                <pose>0 0 0 0 -0 0</pose>
-                <mass>0.0008</mass>
+                <mass>0.0012256</mass>
                 <inertia>
-                    <ixx>0.000000002*50</ixx>
-                    <iyy>0.000000167*50</iyy>
-                    <izz>0.000000168*50</izz>
-                    <ixy>0</ixy>
-                    <ixz>0</ixz>
-                    <iyz>0</iyz>
+                    <ixx>1.4744E-08</ixx><iyy>4.8009E-07</iyy><izz>4.875E-07</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
                 </inertia>
             </inertial>
             <visual name="m4_visual">
-                <pose>0 0 0 0 -0 0</pose>
-                <geometry>
-                    <mesh>
-                        <scale>1 1 1</scale>
-                        <uri>model://crazyflie/../../../../meshes/collada_files/cw_prop.dae</uri>
-                    </mesh>
-                </geometry>
+                <pose>0.059 -0.06 0.017895 1.570796 0 0</pose>
+                <geometry><mesh><uri>model://crazyflie/meshes/Link 2.STL</uri></mesh></geometry>
             </visual>
         </link>
+
         <joint name="m1_joint" type="revolute">
-            <child>m1_prop</child>
-            <parent>base_link</parent>
-            <axis>
-                <xyz>0 0 1</xyz>
-                <limit>
-                    <lower>-1e+16</lower>
-                    <upper>1e+16</upper>
-                </limit>
-                <dynamics>
-                    <spring_reference>0</spring_reference>
-                    <spring_stiffness>0</spring_stiffness>
-                </dynamics>
-            </axis>
+            <child>m1_prop</child><parent>base_link</parent>
+            <axis><xyz>0 0 1</xyz></axis>
         </joint>
         <joint name="m2_joint" type="revolute">
-            <child>m2_prop</child>
-            <parent>base_link</parent>
-            <axis>
-                <xyz>0 0 1</xyz>
-                <limit>
-                    <lower>-1e+16</lower>
-                    <upper>1e+16</upper>
-                </limit>
-                <dynamics>
-                    <spring_reference>0</spring_reference>
-                    <spring_stiffness>0</spring_stiffness>
-                </dynamics>
-            </axis>
+            <child>m2_prop</child><parent>base_link</parent>
+            <axis><xyz>0 0 1</xyz></axis>
         </joint>
         <joint name="m3_joint" type="revolute">
-            <child>m3_prop</child>
-            <parent>base_link</parent>
-            <axis>
-                <xyz>0 0 1</xyz>
-                <limit>
-                    <lower>-1e+16</lower>
-                    <upper>1e+16</upper>
-                </limit>
-                <dynamics>
-                    <spring_reference>0</spring_reference>
-                    <spring_stiffness>0</spring_stiffness>
-                </dynamics>
-            </axis>
+            <child>m3_prop</child><parent>base_link</parent>
+            <axis><xyz>0 0 1</xyz></axis>
         </joint>
         <joint name="m4_joint" type="revolute">
-            <child>m4_prop</child>
-            <parent>base_link</parent>
-            <axis>
-                <xyz>0 0 1</xyz>
-                <limit>
-                    <lower>-1e+16</lower>
-                    <upper>1e+16</upper>
-                </limit>
-                <dynamics>
-                    <spring_reference>0</spring_reference>
-                    <spring_stiffness>0</spring_stiffness>
-                </dynamics>
-            </axis>
+            <child>m4_prop</child><parent>base_link</parent>
+            <axis><xyz>0 0 1</xyz></axis>
         </joint>
-        <plugin
-            filename="gz-sim-multicopter-motor-model-system"
-            name="gz::sim::systems::MulticopterMotorModel">
+
+        <!-- Increased motorConstant to support 130g mass -->
+        <plugin filename="gz-sim-multicopter-motor-model-system" name="gz::sim::systems::MulticopterMotorModel">
             <robotNamespace>cf_{{ cf_id }}</robotNamespace>
             <jointName>m1_joint</jointName>
             <linkName>m1_prop</linkName>
-            <turningDirection>ccw</turningDirection>
-            <timeConstantUp>0.0125</timeConstantUp>
-            <timeConstantDown>0.025</timeConstantDown>
+            <turningDirection>cw</turningDirection>
+            <timeConstantUp>0.0125</timeConstantUp><timeConstantDown>0.025</timeConstantDown>
             <maxRotVelocity>3052</maxRotVelocity>
-            <motorConstant>1.7965e-8</motorConstant>
+            <motorConstant>4.5e-8</motorConstant>
             <momentConstant>0.005964552</momentConstant>
             <commandSubTopic>command/motor_speed</commandSubTopic>
             <actuator_number>0</actuator_number>
@@ -239,17 +152,14 @@
             <rotorVelocitySlowdownSim>120</rotorVelocitySlowdownSim>
             <motorType>velocity</motorType>
         </plugin>
-        <plugin
-            filename="gz-sim-multicopter-motor-model-system"
-            name="gz::sim::systems::MulticopterMotorModel">
+        <plugin filename="gz-sim-multicopter-motor-model-system" name="gz::sim::systems::MulticopterMotorModel">
             <robotNamespace>cf_{{ cf_id }}</robotNamespace>
             <jointName>m2_joint</jointName>
             <linkName>m2_prop</linkName>
-            <turningDirection>cw</turningDirection>
-            <timeConstantUp>0.0125</timeConstantUp>
-            <timeConstantDown>0.025</timeConstantDown>
+            <turningDirection>ccw</turningDirection>
+            <timeConstantUp>0.0125</timeConstantUp><timeConstantDown>0.025</timeConstantDown>
             <maxRotVelocity>3052</maxRotVelocity>
-            <motorConstant>1.7965e-8</motorConstant>
+            <motorConstant>4.5e-8</motorConstant>
             <momentConstant>0.005964552</momentConstant>
             <commandSubTopic>command/motor_speed</commandSubTopic>
             <actuator_number>1</actuator_number>
@@ -259,17 +169,14 @@
             <rotorVelocitySlowdownSim>120</rotorVelocitySlowdownSim>
             <motorType>velocity</motorType>
         </plugin>
-        <plugin
-            filename="gz-sim-multicopter-motor-model-system"
-            name="gz::sim::systems::MulticopterMotorModel">
+        <plugin filename="gz-sim-multicopter-motor-model-system" name="gz::sim::systems::MulticopterMotorModel">
             <robotNamespace>cf_{{ cf_id }}</robotNamespace>
             <jointName>m3_joint</jointName>
             <linkName>m3_prop</linkName>
-            <turningDirection>ccw</turningDirection>
-            <timeConstantUp>0.0125</timeConstantUp>
-            <timeConstantDown>0.025</timeConstantDown>
+            <turningDirection>cw</turningDirection>
+            <timeConstantUp>0.0125</timeConstantUp><timeConstantDown>0.025</timeConstantDown>
             <maxRotVelocity>3052</maxRotVelocity>
-            <motorConstant>1.7965e-8</motorConstant>
+            <motorConstant>4.5e-8</motorConstant>
             <momentConstant>0.005964552</momentConstant>
             <commandSubTopic>command/motor_speed</commandSubTopic>
             <actuator_number>2</actuator_number>
@@ -279,17 +186,14 @@
             <rotorVelocitySlowdownSim>120</rotorVelocitySlowdownSim>
             <motorType>velocity</motorType>
         </plugin>
-        <plugin
-            filename="gz-sim-multicopter-motor-model-system"
-            name="gz::sim::systems::MulticopterMotorModel">
+        <plugin filename="gz-sim-multicopter-motor-model-system" name="gz::sim::systems::MulticopterMotorModel">
             <robotNamespace>cf_{{ cf_id }}</robotNamespace>
             <jointName>m4_joint</jointName>
             <linkName>m4_prop</linkName>
-            <turningDirection>cw</turningDirection>
-            <timeConstantUp>0.0125</timeConstantUp>
-            <timeConstantDown>0.025</timeConstantDown>
+            <turningDirection>ccw</turningDirection>
+            <timeConstantUp>0.0125</timeConstantUp><timeConstantDown>0.025</timeConstantDown>
             <maxRotVelocity>3052</maxRotVelocity>
-            <motorConstant>1.7965e-8</motorConstant>
+            <motorConstant>4.5e-8</motorConstant>
             <momentConstant>0.005964552</momentConstant>
             <commandSubTopic>command/motor_speed</commandSubTopic>
             <actuator_number>3</actuator_number>
@@ -299,16 +203,13 @@
             <rotorVelocitySlowdownSim>120</rotorVelocitySlowdownSim>
             <motorType>velocity</motorType>
         </plugin> 
-        <plugin
-            filename="gz-sim-odometry-publisher-system"
-            name="gz::sim::systems::OdometryPublisher">
+
+        <plugin filename="gz-sim-odometry-publisher-system" name="gz::sim::systems::OdometryPublisher">
             <dimensions>3</dimensions>
             <odom_publish_frequency>200</odom_publish_frequency>
             <odom_topic>/cf_{{ cf_id }}/odom</odom_topic>
         </plugin>
-        <plugin
-            filename="gz_crazysim_plugin"
-            name="crazyflie_interface::GzCrazyflieInterface">
+        <plugin filename="gz_crazysim_plugin" name="crazyflie_interface::GzCrazyflieInterface">
             <imuSubTopic>/imu</imuSubTopic>
             <magSubTopic>/mag</magSubTopic>
             <baroSubTopic>/baro</baroSubTopic>
