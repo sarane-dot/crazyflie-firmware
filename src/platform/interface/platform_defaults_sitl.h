@@ -63,31 +63,31 @@
 #define DEFAULT_SYSTEM_SHUTDOWN_TIMEOUT_MIN       5
 
 #undef PID_ROLL_RATE_KP
-#define PID_ROLL_RATE_KP  100.0
+#define PID_ROLL_RATE_KP  300.0
 #undef PID_ROLL_RATE_KI
-#define PID_ROLL_RATE_KI  400.0
+#define PID_ROLL_RATE_KI  1200.0
 #undef PID_ROLL_RATE_KD
-#define PID_ROLL_RATE_KD  2.5
+#define PID_ROLL_RATE_KD  7.5
 #undef PID_ROLL_RATE_KFF
 #define PID_ROLL_RATE_KFF 0.0
 #undef PID_ROLL_RATE_INTEGRATION_LIMIT
 #define PID_ROLL_RATE_INTEGRATION_LIMIT    33.3
 
 #undef PID_PITCH_RATE_KP
-#define PID_PITCH_RATE_KP  100.0
+#define PID_PITCH_RATE_KP  300.0
 #undef PID_PITCH_RATE_KI
-#define PID_PITCH_RATE_KI  400.0
+#define PID_PITCH_RATE_KI  1200.0
 #undef PID_PITCH_RATE_KD
-#define PID_PITCH_RATE_KD  2.5
+#define PID_PITCH_RATE_KD  7.5
 #undef PID_PITCH_RATE_KFF
 #define PID_PITCH_RATE_KFF 0.0
 #undef PID_PITCH_RATE_INTEGRATION_LIMIT
 #define PID_PITCH_RATE_INTEGRATION_LIMIT   33.3
 
 #undef PID_YAW_RATE_KP
-#define PID_YAW_RATE_KP  50.0
+#define PID_YAW_RATE_KP  150.0
 #undef PID_YAW_RATE_KI
-#define PID_YAW_RATE_KI  16.7
+#define PID_YAW_RATE_KI  30.0
 #undef PID_YAW_RATE_KD
 #define PID_YAW_RATE_KD  0.0
 #undef PID_YAW_RATE_KFF
@@ -99,9 +99,9 @@
 // KP raised slightly (3→4) for faster levelling response.
 // KI reduced to prevent integrator windup during aggressive manoeuvres.
 #undef PID_ROLL_KP
-#define PID_ROLL_KP  6.0
+#define PID_ROLL_KP  15.0
 #undef PID_ROLL_KI
-#define PID_ROLL_KI  2.0
+#define PID_ROLL_KI  4.0
 #undef PID_ROLL_KD
 #define PID_ROLL_KD  0.0
 #undef PID_ROLL_KFF
@@ -110,9 +110,9 @@
 #define PID_ROLL_INTEGRATION_LIMIT    20.0
 
 #undef PID_PITCH_KP
-#define PID_PITCH_KP  6.0
+#define PID_PITCH_KP  15.0
 #undef PID_PITCH_KI
-#define PID_PITCH_KI  2.0
+#define PID_PITCH_KI  4.0
 #undef PID_PITCH_KD
 #define PID_PITCH_KD  0.0
 #undef PID_PITCH_KFF
@@ -172,15 +172,15 @@
 
 // Velocity → attitude output limits and thrust baseline
 #undef PID_VEL_ROLL_MAX
-#define PID_VEL_ROLL_MAX  20.0f
+#define PID_VEL_ROLL_MAX  25.0f
 #undef PID_VEL_PITCH_MAX
-#define PID_VEL_PITCH_MAX 20.0f
+#define PID_VEL_PITCH_MAX 25.0f
 #undef PID_VEL_THRUST_BASE
-#define PID_VEL_THRUST_BASE              36000.0f
+#define PID_VEL_THRUST_BASE              48000.0f
 #undef PID_VEL_THRUST_BASE_BARO_Z_HOLD
-#define PID_VEL_THRUST_BASE_BARO_Z_HOLD 38000.0f
+#define PID_VEL_THRUST_BASE_BARO_Z_HOLD 49000.0f
 #undef PID_VEL_THRUST_MIN
-#define PID_VEL_THRUST_MIN               20000.0f
+#define PID_VEL_THRUST_MIN               30000.0f
 
 // ─── LAYER 4 – Position (outermost) ─────────────────────────────────────────
 // Added KD to both XY and Z to damp overshoot when approaching waypoints.
