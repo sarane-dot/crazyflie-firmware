@@ -225,26 +225,6 @@
             <robotNamespace>cf_{{ cf_id }}</robotNamespace>
             <jointName>m1_joint</jointName>
             <linkName>m1_prop</linkName>
-            <turningDirection>ccw</turningDirection>
-            <timeConstantUp>0.088</timeConstantUp>
-            <timeConstantDown>0.090</timeConstantDown>
-            <maxRotVelocity>2797</maxRotVelocity>
-            <motorConstant>2.3375e-8</motorConstant>
-            <momentConstant>0.005356</momentConstant>
-            <commandSubTopic>command/motor_speed</commandSubTopic>
-            <actuator_number>0</actuator_number>
-            <rotorDragCoefficient>9.1785e-7</rotorDragCoefficient>
-            <rollingMomentCoefficient>0.0000001</rollingMomentCoefficient>
-            <motorSpeedPubTopic>motor_speed/0</motorSpeedPubTopic>
-            <rotorVelocitySlowdownSim>200</rotorVelocitySlowdownSim>
-            <motorType>velocity</motorType>
-        </plugin>
-        <plugin
-            filename="gz-sim-multicopter-motor-model-system"
-            name="gz::sim::systems::MulticopterMotorModel">
-            <robotNamespace>cf_{{ cf_id }}</robotNamespace>
-            <jointName>m2_joint</jointName>
-            <linkName>m2_prop</linkName>
             <turningDirection>cw</turningDirection>
             <timeConstantUp>0.088</timeConstantUp>
             <timeConstantDown>0.090</timeConstantDown>
@@ -263,8 +243,48 @@
             filename="gz-sim-multicopter-motor-model-system"
             name="gz::sim::systems::MulticopterMotorModel">
             <robotNamespace>cf_{{ cf_id }}</robotNamespace>
+            <jointName>m2_joint</jointName>
+            <linkName>m2_prop</linkName>
+            <turningDirection>ccw</turningDirection>
+            <timeConstantUp>0.088</timeConstantUp>
+            <timeConstantDown>0.090</timeConstantDown>
+            <maxRotVelocity>2797</maxRotVelocity>
+            <motorConstant>2.3375e-8</motorConstant>
+            <momentConstant>0.005356</momentConstant>
+            <commandSubTopic>command/motor_speed</commandSubTopic>
+            <actuator_number>0</actuator_number>
+            <rotorDragCoefficient>9.1785e-7</rotorDragCoefficient>
+            <rollingMomentCoefficient>0.0000001</rollingMomentCoefficient>
+            <motorSpeedPubTopic>motor_speed/0</motorSpeedPubTopic>
+            <rotorVelocitySlowdownSim>200</rotorVelocitySlowdownSim>
+            <motorType>velocity</motorType>
+        </plugin>
+        <plugin
+            filename="gz-sim-multicopter-motor-model-system"
+            name="gz::sim::systems::MulticopterMotorModel">
+            <robotNamespace>cf_{{ cf_id }}</robotNamespace>
             <jointName>m3_joint</jointName>
             <linkName>m3_prop</linkName>
+            <turningDirection>cw</turningDirection>
+            <timeConstantUp>0.088</timeConstantUp>
+            <timeConstantDown>0.090</timeConstantDown>
+            <maxRotVelocity>2797</maxRotVelocity>
+            <motorConstant>2.3375e-8</motorConstant>
+            <momentConstant>0.005356</momentConstant>
+            <commandSubTopic>command/motor_speed</commandSubTopic>
+            <actuator_number>3</actuator_number>
+            <rotorDragCoefficient>9.1785e-7</rotorDragCoefficient>
+            <rollingMomentCoefficient>0.0000001</rollingMomentCoefficient>
+            <motorSpeedPubTopic>motor_speed/3</motorSpeedPubTopic>
+            <rotorVelocitySlowdownSim>200</rotorVelocitySlowdownSim>
+            <motorType>velocity</motorType>
+        </plugin>
+        <plugin
+            filename="gz-sim-multicopter-motor-model-system"
+            name="gz::sim::systems::MulticopterMotorModel">
+            <robotNamespace>cf_{{ cf_id }}</robotNamespace>
+            <jointName>m4_joint</jointName>
+            <linkName>m4_prop</linkName>
             <turningDirection>ccw</turningDirection>
             <timeConstantUp>0.088</timeConstantUp>
             <timeConstantDown>0.090</timeConstantDown>
@@ -276,26 +296,6 @@
             <rotorDragCoefficient>9.1785e-7</rotorDragCoefficient>
             <rollingMomentCoefficient>0.0000001</rollingMomentCoefficient>
             <motorSpeedPubTopic>motor_speed/2</motorSpeedPubTopic>
-            <rotorVelocitySlowdownSim>200</rotorVelocitySlowdownSim>
-            <motorType>velocity</motorType>
-        </plugin>
-        <plugin
-            filename="gz-sim-multicopter-motor-model-system"
-            name="gz::sim::systems::MulticopterMotorModel">
-            <robotNamespace>cf_{{ cf_id }}</robotNamespace>
-            <jointName>m4_joint</jointName>
-            <linkName>m4_prop</linkName>
-            <turningDirection>cw</turningDirection>
-            <timeConstantUp>0.088</timeConstantUp>
-            <timeConstantDown>0.090</timeConstantDown>
-            <maxRotVelocity>2797</maxRotVelocity>
-            <motorConstant>2.3375e-8</motorConstant>
-            <momentConstant>0.005356</momentConstant>
-            <commandSubTopic>command/motor_speed</commandSubTopic>
-            <actuator_number>3</actuator_number>
-            <rotorDragCoefficient>9.1785e-7</rotorDragCoefficient>
-            <rollingMomentCoefficient>0.000001</rollingMomentCoefficient>
-            <motorSpeedPubTopic>motor_speed/3</motorSpeedPubTopic>
             <rotorVelocitySlowdownSim>200</rotorVelocitySlowdownSim>
             <motorType>velocity</motorType>
         </plugin> 

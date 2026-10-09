@@ -152,9 +152,9 @@
 #define PID_VEL_Y_KFF 0.0f
 
 #undef PID_VEL_Z_KP
-#define PID_VEL_Z_KP  25.0f
+#define PID_VEL_Z_KP  15.0f
 #undef PID_VEL_Z_KI
-#define PID_VEL_Z_KI  10.0f
+#define PID_VEL_Z_KI  3.0f
 #undef PID_VEL_Z_KD
 #define PID_VEL_Z_KD  0.5f
 #undef PID_VEL_Z_KFF
@@ -172,15 +172,15 @@
 
 // Velocity → attitude output limits and thrust baseline
 #undef PID_VEL_ROLL_MAX
-#define PID_VEL_ROLL_MAX  25.0f
+#define PID_VEL_ROLL_MAX  15.0f
 #undef PID_VEL_PITCH_MAX
-#define PID_VEL_PITCH_MAX 25.0f
+#define PID_VEL_PITCH_MAX 15.0f
 #undef PID_VEL_THRUST_BASE
-#define PID_VEL_THRUST_BASE              48000.0f
+#define PID_VEL_THRUST_BASE              27500.0f
 #undef PID_VEL_THRUST_BASE_BARO_Z_HOLD
-#define PID_VEL_THRUST_BASE_BARO_Z_HOLD 49000.0f
+#define PID_VEL_THRUST_BASE_BARO_Z_HOLD 28000.0f
 #undef PID_VEL_THRUST_MIN
-#define PID_VEL_THRUST_MIN               30000.0f
+#define PID_VEL_THRUST_MIN               15000.0f
 
 // ─── LAYER 4 – Position (outermost) ─────────────────────────────────────────
 // Added KD to both XY and Z to damp overshoot when approaching waypoints.

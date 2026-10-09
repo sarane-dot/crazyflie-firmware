@@ -26,14 +26,13 @@
 // OLD linear model (commented out):
 // #define PWM2OMEGA(pwm) ((pwm) < (1000) ? (0) : ((0.04076521f*pwm) + 380.8359f))
 
-// NEW: Matches Crazyflow's linear thrust model
-// thrust_desired = (pwm / 65535) * 0.18 N
-// omega = sqrt(thrust_desired / motorConstant)
+// NEW: Matches Crazyflow's linear thrust model, updated for 135g frame
+// motorConstant = 8.5e-8, maxRotVelocity = 3052
+// max_thrust = 8.5e-8 * 3052^2 = 0.791 N
 static inline float PWM2OMEGA(uint16_t pwm) {
-    if (pwm < 7000) return 0.0f;
-    float thrust_desired = (pwm / 65535.0f) * 0.18f;
-    float omega = std::sqrt(thrust_desired / 2.3375e-8f);
-    return std::fmin(omega, 2797.0f);  // Cap at maxRotVelocity
+    float thrust_desired = (pwm / 65535.0f) * 0.791f;
+    float omega = std::sqrt(thrust_desired / 8.5e-8f);
+    return std::fmin(omega, 3052.0f);  // Cap at maxRotVelocity
 }
 
 // Sensor type (first byte of crtp packet)
